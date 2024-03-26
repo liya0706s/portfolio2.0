@@ -1,0 +1,248 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    /* overflow: hidden; */
+    /* background-color: lightgrey; */
+}
+
+/* gsap給背景動畫用的  */
+#animatedBackground {
+    background-position: 0% 0%;
+    width: 100%;
+    height: 100vh; /* 滿屏高度 */
+    background-image: url('./calendar_img/forest.avif'); /* 背景圖片路徑 */
+    /* background-size: cover;  */
+    /* 確保背景覆蓋整個元素 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+.header{
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    font-size: 45px;
+}
+
+body {
+    background-size: cover;
+    /* background-image: url(./calendar_img/background-image-60.jpg); */
+}
+
+.container {
+    width: 100%;
+    /* background-color: #DFDFDF; */
+    background-color: transparent;
+    height: 85vh;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 0;
+}
+
+/* 行事曆表頭 */
+.title {
+    text-align: center;
+    /* background-color: #f79400; */
+    font-size: 35px;
+    color: white;
+    font-weight: bold
+}
+
+.table {
+    background-color: white;
+    width: 600px;
+    /* padding: 20px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+}
+
+.th {
+    font-weight: bold;
+}
+
+table,
+tr,
+td {
+    /* background-color: white; */
+    border-collapse: collapse;
+
+}
+
+td {
+    width: 80px;
+    height: 50px;
+    border: 1px solid #999;
+
+    padding: 5px 5px;
+    /* padding 內距 上下5px 左右5px */
+    text-align: center;
+    font-size: 16px;
+}
+
+td:hover {
+    background-color: lightgoldenrodyellow;
+    color: lightslategray;
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    height: 10vh;
+}
+
+.search-box {
+    display: flex;
+    /* 讓所有子元素排在一行 */
+    align-items: center;
+    /* 垂直居中對齊子元素 */
+    justify-content: space-between;
+    /* 子元素之間平均分布 */
+}
+
+.form-control {
+    margin-right: 10px;
+    /* 給輸入框添加右邊距，讓他們之間有間隔 */
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+input {
+    height: auto;
+    display: inline;
+}
+
+.form {
+    /* background-color: lightcyan; */
+    width: 40%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+}
+
+.hi-home {
+    /* background-color: lightpink; */
+    display: flex;
+}
+
+.home {
+    /* background-color: brown; */
+    text-align: center;
+    margin: auto;
+    align-items: baseline;
+
+}
+
+.home>a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    border: 2px brown solid;
+    border-radius: 10px;
+    color: white;
+    background-color: brown;
+    text-align: center;
+    margin: auto;
+    padding: 6px;
+}
+
+.home>a:hover{
+    color:white;
+}
+
+.nav-bar {
+    display: flex;
+}
+
+a {
+    display: inline;
+    margin-bottom: 10px;
+}
+
+/* 左右按鈕和行事曆組 */
+.table_tri {
+    width: 50%;
+    height: 75vh;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: purple; */
+    margin-left: 50px;
+}
+
+/* h2和行事曆 */
+.table_two {
+    display: flex;
+    flex-direction: column;
+    /* background-color: yellow; */
+}
+
+.bt_left,
+.bt_right {
+    /* background-color: #f79400; */
+    height: 50vh;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* 左按鈕 */
+.bt_left>a {
+    font-size: 40px;
+    font-weight: bolder;
+    color: #C5C6C7;
+    text-align: center;
+    margin-right: 15px;
+}
+
+/* 右按鈕 */
+.bt_right>a {
+    font-size: 40px;
+    font-weight: bolder;
+    color: #C5C6C7;
+    text-align: center;
+    margin-left: 15px;
+}
+
+.main{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* 右邊圖片區 */
+.asider {
+    width: 60%;
+    /* background-color: lightcoral; */
+    text-align: center;
+    align-items:first baseline;
+margin: auto;
+    padding: 20px 20px;
+    /* height: 60vh; */
+}
+
+.weekend {
+    background: pink;
+}
+
+.current-date {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.current-date:hover {
+    color: black;
+}
