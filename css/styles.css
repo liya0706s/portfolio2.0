@@ -603,6 +603,32 @@ progress {
   height: auto;
 }
 
+/* 自己加的CSS */
+.image-container:hover{
+  opacity:0.5;
+  cursor:pointer;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block; 
+  /* 或者其他合适的布局，确保容器的尺寸与图片匹配 */
+}
+
+.overlay {
+  position: absolute;
+  color:var(--bs-orange);
+  top: 0;
+  left: 0;
+  /* right: 0; */
+  /* bottom: 0; */
+  display: flex;
+  align-items:center;
+  justify-content: center; /* 水平居中 */
+  font-size: 25px; /* 文本大小 */
+}
+
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
