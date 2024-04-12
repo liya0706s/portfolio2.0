@@ -1,7 +1,7 @@
 <?php include_once "./api/db.php";
-if (!isset($_SESSION['login'])) {
-  to("index.php");
-}
+// if (!isset($_SESSION['login'])) {
+//   to("index.php");
+// }
 ?>
 
 <!doctype html>

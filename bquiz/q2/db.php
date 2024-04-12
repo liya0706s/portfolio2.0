@@ -3,7 +3,8 @@ date_default_timezone_set("Asia/Taipei");  // 設定預設時區為亞洲/台北
 session_start();  // 啟動 PHP Session
 class DB{
 
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=bquiz";
+    // protected $dsn = "mysql:host=localhost;charset=utf8;dbname=bquiz";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=s1120409";
     // 資料庫連線設定，包括主機名、編碼方式、資料表名稱(適時調整)
     protected $pdo;  // PDO 實例
     protected $table;  
@@ -11,7 +12,9 @@ class DB{
     public function __construct($table) // 建構式就是初始化，類別宣告出來第一件做的事
     {
         $this->table=$table; // 設定資料表名稱，將物件內部的table值設為帶入的$table
-        $this->pdo=new PDO($this->dsn,'root','');  // 透過 PDO 建立資料庫連線
+        // $this->pdo=new PDO($this->dsn,'root','');  
+        // 透過 PDO 建立資料庫連線
+        $this->pdo=new PDO($this->dsn,'s1120409','s1120409');
     }
 
 
