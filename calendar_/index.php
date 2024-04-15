@@ -204,7 +204,7 @@ switch ($month) {
     </div>
 
     <div class="asider">
-      <img src="/calendar_img/<?php echo $Bg; ?>" style="border-radius:25px; height:60vh;">
+      <img src="./calendar_img/<?php echo $Bg; ?>" style="border-radius:25px; height:60vh;">
     </div>
   </div>
 
