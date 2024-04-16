@@ -196,33 +196,31 @@
 					</ul>
 				</div>
 
-				<div class="col-3  d-flex">
+				<div class="col-3 d-flex">
 					<ul class="navbar-nav ml-auto">
 						<!-- 判斷有沒有登入的狀態，顯示不同的連結 -->
 						<li class="item">
 							<?php
 							if (isset($_SESSION['login'])) {
 							?>
-								<a class="nav-link active me-3" href="back.php">
+								<a class="nav-link active" href="back.php">
 									<i class="fa-solid fa-list-check"></i>&nbsp;返回管理
 								</a>
-								<a class="nav-link active me-6" href="./api/logout.php">登出</a>
-
-								<!-- <a href="./api/logout.php" class="me-3 btn btn-outline-secondary">Sign out</a> -->
-
-							<?php
-							} else {
-							?>
-								<!-- open sidebar / offcanvas -->
-								<a class="nav-link active" href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar-label">
-									<i class="fa-solid fa-right-to-bracket"></i>
-									&nbsp;會員登入
-								</a>
-							<?php
-							}
-							?>
+						<li class="item">
+							<a class="nav-link active" href="./api/logout.php">登出</a>
 						</li>
-
+					<?php
+							} else {
+					?>
+						<!-- open sidebar / offcanvas -->
+						<a class="nav-link active" href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar-label">
+							<i class="fa-solid fa-right-to-bracket"></i>
+							&nbsp;會員登入
+						</a>
+					<?php
+							}
+					?>
+					</li>
 					</ul>
 
 				</div>
@@ -478,10 +476,10 @@
 					<span class="mb-3 mb-md-0 text-body-secondary me-5">© 2024 AL Website. All rights reserved.</span>
 
 					<span>
-					<i class="fa-solid fa-chart-simple ms-4"></i>
-					今日人數 <?= $Total->find(1)['total']; ?>
+						<i class="fa-solid fa-chart-simple ms-4"></i>
+						今日人數 <?= $Total->find(1)['total']; ?>
 					</span>
-					
+
 
 				</div>
 
