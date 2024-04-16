@@ -124,37 +124,37 @@
 				<!-- <a class="navbar-brand" href="index.php">
 					<i class="fa-solid fa-school"></i>
 				</a> -->
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse row" id="navbarNav">
-					</div>
-					<div class="col-9">
-						<ul class="navbar-nav">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse row" id="navbarNav">
+				</div>
+				<div class="col-9">
+					<ul class="navbar-nav">
 
-							<li class="nav-item">
-								<a class="nav-link active" href="#">
-									<i class="fa-solid fa-code"></i>
-									<!-- <img src="./img/kids_coding-removebg-preview.png" style="width:25px; height:25px"> -->
-								</a>
-							</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#">
+								<i class="fa-solid fa-code"></i>
+								<!-- <img src="./img/kids_coding-removebg-preview.png" style="width:25px; height:25px"> -->
+							</a>
+						</li>
 
-							<!-- 靜態導航項目 -->
-							<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="#">Home</a>
-							</li>
+						<!-- 靜態導航項目 -->
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="#">Home</a>
+						</li>
 
-							<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="#product">Product</a>
-							</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="#product">Product</a>
+						</li>
 
-							<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="#reviews">Reviews</a>
-							</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="#reviews">Reviews</a>
+						</li>
 
-							<!-- 動態生成的主選單和子選單 -->
-							<!-- 有子選單開始 -->
-							<!-- <li class="nav-item dropdown">
+						<!-- 動態生成的主選單和子選單 -->
+						<!-- 有子選單開始 -->
+						<!-- <li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="#">Action</a></li>
@@ -163,68 +163,69 @@
 								</ul>
 							</li> -->
 
-							<!-- <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2" class="btn btn-primary" ></a> -->
-							<!-- 以上a link 可以toggle modal -->
+						<!-- <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2" class="btn btn-primary" ></a> -->
+						<!-- 以上a link 可以toggle modal -->
+
+						<?php
+						// $mainMenus = $Menu->all(['sh' => 1, 'menu_id' => 0]);
+						// foreach ($mainMenus as $main) {
+						// 	$subMenus = $Menu->all(['menu_id' => $main['id']]);
+						// 	$hasSub = count($subMenus) > 0;
+
+						// 	echo "<li class='nav-item";
+						// 	echo $hasSub ? " dropdown" : "";
+						// 	echo "'>";
+
+						// 	echo "<a class='nav-link";
+						// 	echo $hasSub ? " dropdown-toggle' href='#' id='navbarDropdown{$main['id']}' role='button' data-bs-toggle='dropdown' aria-expanded='false'" : "' data-bs-toggle='modal' data-bs-target='#exampleModal' href='{$main['href']}'";
+						// 	echo ">{$main['text']}</a>";
+
+
+						// 	if ($hasSub) {
+						// 		echo "<ul class='dropdown-menu' aria-labelledby='navbarDropdown{$main['id']}'>";
+						// 		foreach ($subMenus as $sub) {
+						// 			echo "<li><a class='dropdown-item' href='{$sub['href']}'>{$sub['text']}</a></li>";
+						// 		}
+						// 		echo "</ul>";
+						// 	}
+
+						// 	echo "</li>";
+						// }
+						?>
+						<!-- 有子選單結束 -->
+					</ul>
+				</div>
+
+				<div class="col-3  d-flex">
+					<ul class="navbar-nav ml-auto">
+						<!-- 判斷有沒有登入的狀態，顯示不同的連結 -->
+						<li class="item">
+							<?php
+							if (isset($_SESSION['login'])) {
+							?>
+								<a class="nav-link active me-3" href="back.php">
+									<i class="fa-solid fa-list-check"></i>&nbsp;返回管理
+								</a>
+								<a class="nav-link active me-6" href="./api/logout.php">登出</a>
+
+								<!-- <a href="./api/logout.php" class="me-3 btn btn-outline-secondary">Sign out</a> -->
 
 							<?php
-							$mainMenus = $Menu->all(['sh' => 1, 'menu_id' => 0]);
-							foreach ($mainMenus as $main) {
-								$subMenus = $Menu->all(['menu_id' => $main['id']]);
-								$hasSub = count($subMenus) > 0;
-
-								echo "<li class='nav-item";
-								echo $hasSub ? " dropdown" : "";
-								echo "'>";
-
-								echo "<a class='nav-link";
-								echo $hasSub ? " dropdown-toggle' href='#' id='navbarDropdown{$main['id']}' role='button' data-bs-toggle='dropdown' aria-expanded='false'" : "' data-bs-toggle='modal' data-bs-target='#exampleModal' href='{$main['href']}'";
-								echo ">{$main['text']}</a>";
-					
-
-								if ($hasSub) {
-									echo "<ul class='dropdown-menu' aria-labelledby='navbarDropdown{$main['id']}'>";
-									foreach ($subMenus as $sub) {
-										echo "<li><a class='dropdown-item' href='{$sub['href']}'>{$sub['text']}</a></li>";
-									}
-									echo "</ul>";
-								}
-
-								echo "</li>";
+							} else {
+							?>
+								<!-- open sidebar / offcanvas -->
+								<a class="nav-link active" href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar-label">
+									<i class="fa-solid fa-right-to-bracket"></i>
+									&nbsp;會員登入
+								</a>
+							<?php
 							}
 							?>
-							<!-- 有子選單結束 -->
-						</ul>
-					</div>
+						</li>
 
-					<div class="col-3  d-flex">
-						<ul class="navbar-nav ml-auto">
-							<!-- 判斷有沒有登入的狀態，顯示不同的連結 -->
-							<li class="item">
-								<?php
-								if (isset($_SESSION['login'])) {
-								?>
-									<a class="nav-link active me-5" href="back.php">
-										<i class="fa-solid fa-list-check"></i>&nbsp;返回管理
-									</a>
-								<?php
-								} else {
-								?>
-									<!-- open sidebar / offcanvas -->
-									<a class="nav-link active" href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar-label">
-										<i class="fa-solid fa-right-to-bracket"></i>
-										&nbsp;會員登入
-									</a>
-								<?php
-								}
-								?>
-							</li>
-							<li class="item mt-2">
-								<i class="fa-solid fa-chart-simple me-1"></i>
-								今日人數 <?= $Total->find(1)['total']; ?>
-							</li>
-						</ul>
+					</ul>
 
-					</div>
+				</div>
 			</div>
 		</nav>
 
@@ -397,7 +398,7 @@
 								<p class="lead card-subtitle">適合中大班-低年級</p>
 								<p class="display-5 my-4 text-primary fw-bold">$79.9</p>
 								<p class="card-text mx-5 text-muted d-none d-lg-block">
-								KIBO 是一套針對幼兒及小學生的無屏幕可編程機器人套件，使用實體木製編碼積木，孩子們可以排列並掃描這些積木，來設計他們自己的創意程式。
+									KIBO 是一套針對幼兒及小學生的無屏幕可編程機器人套件，使用實體木製編碼積木，孩子們可以排列並掃描這些積木，來設計他們自己的創意程式。
 								</p>
 								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
 							</div>
@@ -413,7 +414,7 @@
 								<p class="lead card-subtitle">適合中大班-中年級</p>
 								<p class="display-5 my-4 text-primary fw-bold">$89.9</p>
 								<p class="card-text mx-5 text-muted d-none d-lg-block">
-								ScratchJr 是適合兒童的免費程式語言。利用區塊程式讓孩子們創造自己的互動故事和遊戲。截至2023年8月，該應用程式已超過4,500萬用戶，已創建超過1.94億個專案。目前被翻譯成48種語言！
+									ScratchJr 是適合兒童的免費程式語言。利用區塊程式讓孩子們創造自己的互動故事和遊戲。截至2023年8月，該應用程式已超過4,500萬用戶，已創建超過1.94億個專案。目前被翻譯成48種語言！
 								</p>
 								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
 							</div>
@@ -428,8 +429,8 @@
 								<p class="lead card-subtitle">適合高年級-國中三年級</p>
 								<p class="display-5 my-4 text-primary fw-bold">$99.9</p>
 								<p class="card-text mx-5 text-muted d-none d-lg-block">
-								Scratch 是世界上最大的兒童編寫程式語言平台，具有簡單視覺化介面的編碼語言，可增進運算思維和解決問題的能力、創意教育及學習、自我表達和協作。
-								micro:bit 是一塊微型電路板，旨在幫助孩子學習編寫程式和利用科技進行創作。包括LED顯示器、按鈕和運動感應器等功能，可以連接到Scratch結合數位和物理的創意項目。
+									Scratch 是世界上最大的兒童編寫程式語言平台，具有簡單視覺化介面的編碼語言，可增進運算思維和解決問題的能力、創意教育及學習、自我表達和協作。
+									micro:bit 是一塊微型電路板，旨在幫助孩子學習編寫程式和利用科技進行創作。包括LED顯示器、按鈕和運動感應器等功能，可以連接到Scratch結合數位和物理的創意項目。
 								</p>
 								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
 							</div>
@@ -448,31 +449,40 @@
 
 
 		<!-- <div class="container-fluid"> -->
-			<!-- <div class="row"> -->
-				<!-- 中間區塊開始 -->
-				<?php
-				// $do = $_GET['do'] ?? 'main';
-				// $file = "./front/{$do}.php";
-				// if (file_exists($file)) {
-				// 	include $file;
-				// } else {
-				// 	include "./front/main.php";
-				// }
-				// ?>
-				<!-- 中間區塊結束 -->
-			<!-- </div> -->
+		<!-- <div class="row"> -->
+		<!-- 中間區塊開始 -->
+		<?php
+		// $do = $_GET['do'] ?? 'main';
+		// $file = "./front/{$do}.php";
+		// if (file_exists($file)) {
+		// 	include $file;
+		// } else {
+		// 	include "./front/main.php";
+		// }
+		// 
+		?>
+		<!-- 中間區塊結束 -->
+		<!-- </div> -->
 		<!-- </div> -->
 
 		<!-- footer start -->
 		<div class="container">
 			<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-				<div class="col-md-4 d-flex align-items-center">
+				<!-- <div class="col-md-4 d-flex align-items-center"> -->
+				<div>
 					<a href="https://getbootstrap.com/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-0.5">
 						<svg class="bi" width="30" height="24">
 							<use xlink:href="#bootstrap"></use>
 						</svg>
 					</a>
-					<span class="mb-3 mb-md-0 text-body-secondary">© 2024 Angie Lee Website. All rights reserved.</span>
+					<span class="mb-3 mb-md-0 text-body-secondary me-5">© 2024 AL Website. All rights reserved.</span>
+
+					<span>
+					<i class="fa-solid fa-chart-simple ms-4"></i>
+					今日人數 <?= $Total->find(1)['total']; ?>
+					</span>
+					
+
 				</div>
 
 				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
