@@ -8,31 +8,31 @@ if (isset($_GET['month'])) {
 
 switch ($month) {
   case "1":
-    $Bg = "jan.avif";
+    $Bg = "jan.webp";
     break;
   case "2":
-    $Bg = "feb.avif";
+    $Bg = "feb.webp";
     break;
   case "3":
-    $Bg = "mar.avif";
+    $Bg = "mar.webp";
     break;
   case "04":
-    $Bg = "april.avif";
+    $Bg = "apr.webp";
     break;
   case "05":
-    $Bg = "may.avif";
+    $Bg = "may.webp";
     break;
   case "06":
     $Bg = "jun.avif";
     break;
   case "07":
-    $Bg = "july.avif";
+    $Bg = "july.webp";
     break;
   case "08":
-    $Bg = "aug.avif";
+    $Bg = "aug.webp";
     break;
   case "09":
-    $Bg = "sep.avif";
+    $Bg = "sep.webp";
     break;
   case "10":
     $Bg = "oct.avif";
@@ -62,8 +62,9 @@ switch ($month) {
 </head>
 
 <body>
+
   <?php
-// 用GET接受用戶從網址列輸入的年份和月份
+  // 用GET接受用戶從網址列輸入的年份和月份
   if (isset($_GET['month']) && isset($_GET['year'])) {
     $month = $_GET['month'];
     $year = $_GET['year'];
@@ -160,22 +161,47 @@ switch ($month) {
 
 
             <?php
-            
+            $today = date("Y-m-d");
+            $holidays=[
+              "01-01" => "元旦",
+              "02-28" => "和平紀念日",
+              "04-04" => "兒童節",
+              "04-05" => "清明節",
+              "05-01" => "勞動節",
+              "10-10" => "國慶日",
+              "12-25" => "聖誕節"
+            ];
+            $currentYear=date("Y");
+
             for ($i = 0; $i < $weeks; $i++) {
               echo "<tr>";
               for ($j = 0; $j < 7; $j++) {
                 $addDays = 7 * $i + $j;
                 $thisCellDate = strtotime("+$addDays days", strtotime($firstCell));
+                $cellDateFormatted = date("Y-m-d", $thisCellDate);
+                $cellMonthDay=date("m-d", $thisCellDate); // 生成月份和日期的格式
 
-                if (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) {
-                  echo "<td style='color:red'>";
-                } else {
-                  echo "<td>";
-                }
+                // 檢查是否為週末
+                // if (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) {
+                //   echo "<td style='color:red'>";
+                // } else {
+                //   echo "<td>";
+                // }
 
+                // 檢查是否為週末
+                $weekendStyle = (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) ? "color:red;" : "";
+
+                // 檢查是否為國定假日並添加樣式
+                // $holidayStyle= isset($holidays[$cellMonthDay]) ? "font-size: 0.8em": "";
+                $holidayText=isset($holidays[$cellMonthDay])? "</br>" . $holidays[$cellMonthDay]: "";
+
+                // 檢查是否為今天，並以淡紫色背景凸顯
+                $highlightToday = ($cellDateFormatted == $today) ? "background-color:lavender;" : "";
+                echo "<td style='$weekendStyle $highlightToday'>";
+
+                // echo "<td style='$holidayStyle'>";
                 if (date("m", $thisCellDate) == date("m", strtotime($thisFirstDay))) {
-                  echo date("j", $thisCellDate);
-                  // 月份中的日期
+                  echo date("j", $thisCellDate) . $holidayText; // 顯示日期和國定假日名稱
                 }
                 echo "</td>";
               }
