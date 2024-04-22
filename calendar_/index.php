@@ -63,7 +63,7 @@ switch ($month) {
 
 <body>
   <?php
-
+// 用GET接受用戶從網址列輸入的年份和月份
   if (isset($_GET['month']) && isset($_GET['year'])) {
     $month = $_GET['month'];
     $year = $_GET['year'];
@@ -135,12 +135,12 @@ switch ($month) {
           if (isset($_GET['month']) && isset($_GET['year'])) {
             $month = $_GET['month'];
             $year = $_GET['year'];
-            // 使用 strtotime 函數建立日期
+            // 使用 strtotime 函數代表當年當月的第一天(即每月的1號)
             $date = strtotime("$year-$month-01");
-            // 格式化日期
+            // 格式化日期成人類可讀的日期格式
             echo date('F Y', $date);
           } else {
-            // 如果未提供 URL 參數，則使用當前日期
+            // 如果未提供 URL 參數，則使用當前年月份
             echo date('F Y');
           }
           ?>
@@ -160,6 +160,7 @@ switch ($month) {
 
 
             <?php
+            
             for ($i = 0; $i < $weeks; $i++) {
               echo "<tr>";
               for ($j = 0; $j < 7; $j++) {
